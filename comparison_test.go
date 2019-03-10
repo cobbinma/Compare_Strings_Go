@@ -15,11 +15,3 @@ func TestComparisonSetComparison(t *testing.T) {
 		t.Fatalf("Expected %s but got %s", subtext, comparisonTest.subtext)
 	}
 }
-
-func TestAreTwoByteArraysTheSame(t *testing.T) {
-	isMatch := areTwoByteArraysTheSame([]byte{1, 2, 3, 4}, []byte{1, 2, 3, 4})
-
-	if isMatch != true {
-		t.Fatalf("Arrays do not match")
-	}
-}
