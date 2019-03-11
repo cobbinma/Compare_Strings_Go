@@ -7,9 +7,17 @@ import (
 
 func main() {
 	args := os.Args[1:]
-	textArray := createByteArray(args[0])
-	subTextArray := createByteArray(args[1])
-	comp1 := comparison{args[0], args[1], textArray, subTextArray}
-	matchArray := comp1.compareByteArrays()
-	fmt.Println(matchArray)
+	isError, errors := errorChecks(args)
+	if isError {
+		fmt.Println(errors)
+	} else {
+		comp1 := comparison{args[0], args[1],
+			createByteArray(args[0]), createByteArray(args[1])}
+		matchArray := comp1.compareByteArrays()
+		if len(matchArray) > 0 {
+			fmt.Println(matchArray)
+		} else {
+			fmt.Println("No matches found")
+		}
+	}
 }

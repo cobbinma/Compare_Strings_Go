@@ -20,7 +20,7 @@ func setComparison(text string, subtext string, textByteArray []byte,
 
 func (comp comparison) compareByteArrays() []int {
 	var s []int
-	for i := 0; i < len(comp.textByteArray); i++ {
+	for i := 0; i < (len(comp.textByteArray) - len(comp.subtextByteArray) + 1); i++ {
 		for j := 0; j < len(comp.subtextByteArray); j++ {
 			if comp.textByteArray[i+j] == comp.subtextByteArray[j] {
 				if j == len(comp.subtextByteArray)-1 {
